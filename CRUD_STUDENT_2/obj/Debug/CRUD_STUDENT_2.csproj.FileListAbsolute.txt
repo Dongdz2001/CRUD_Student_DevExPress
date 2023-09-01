@@ -92,3 +92,7 @@ C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CR
 C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CRUD_STUDENT_2.LoginForm.resources
 C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CRUD_STUDENT_2.RegisterForm.resources
 C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CRUD_STUDENT_2.SchoolDashBoard.resources
+C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\bin\Debug\CRUD_STUDENT_2.exe.manifest
+C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\bin\Debug\CRUD_STUDENT_2.application
+C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CRUD_STUDENT_2.exe.manifest
+C:\Users\Duong Minh Dong\source\repos\CRUD_STUDENT_2\CRUD_STUDENT_2\obj\Debug\CRUD_STUDENT_2.application
