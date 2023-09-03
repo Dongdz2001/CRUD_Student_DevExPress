@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VBSQLHelper;
 
 namespace CRUD_STUDENT_2
 {
@@ -16,55 +18,37 @@ namespace CRUD_STUDENT_2
         private FormStudent formStudent ;
         private FormParent formParent ;
         private FormTeacher formTeacher ;
-        public SchoolDashBoard()
+        private User user;
+        private string permission;
+        public SchoolDashBoard(DataRow dataRow)
         {
             InitializeComponent();
             formStudent = new FormStudent();
             formParent = new FormParent();
             formTeacher = new FormTeacher();
-        }
+            user = new User {
+                U_ID = dataRow["U_ID"].ToString(),
+                U_Name = dataRow["U_Name"].ToString(),
+                U_Pass = dataRow["U_Pass"].ToString(),
 
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                formStudent.Show();
-            }
-            catch(Exception ex)
-            {
-                formStudent = new FormStudent();
-                formStudent.Show();
-            }
-        }
+            };
+            var query = $"SELECT U_ID, role FROM tbl_User_Account " +
+                        $"LEFT JOIN tbl_Role_Users ON tbl_User_Account.U_ID = tbl_Role_Users.idUser " +
+                        $"LEFT JOIN tbl_Role ON tbl_Role_Users.idRole = tbl_Role.id " +
+                        $"WHERE U_ID = '{user.U_ID}';";
 
-        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                formTeacher.Show();
-            }
-            catch (Exception ex)
-            {
-                formTeacher = new FormTeacher();
-                formTeacher.Show();
-            }
-        }
-
-        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                formParent.Show();
-            }
-            catch (Exception ex)
-            {
-                formParent = new FormParent();
-                formParent.Show();
-            }
+            var dataRow_Permission = SQLHelper.ExecQueryDataAsDataTable(query);
+            //XtraMessageBox.Show(dataRow_Permission.Rows[0]["role"].ToString());
+            permission = dataRow_Permission.Rows[0]["role"].ToString().Trim();
         }
 
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (!permission.Equals("Student"))
+            {
+                XtraMessageBox.Show("Bạn không có quyền truy cập vào Student", "Warning");
+                return;
+            }
             try
             {
                 formStudent.Show();
@@ -78,6 +62,11 @@ namespace CRUD_STUDENT_2
 
         private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (!permission.Equals("Teacher"))
+            {
+                XtraMessageBox.Show("Bạn không có quyền truy cập vào Teacher", "Warning");
+                return;
+            }
             try
             {
                 formTeacher.Show();
@@ -91,6 +80,11 @@ namespace CRUD_STUDENT_2
 
         private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (!permission.Equals("Parent"))
+            {
+                XtraMessageBox.Show("Bạn không có quyền truy cập vào Parent", "Warning");
+                return;
+            }
             try
             {
                 formParent.Show();

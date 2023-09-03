@@ -94,7 +94,10 @@ namespace CRUD_STUDENT_2
                 {
                     XtraMessageBox.Show("Create account Succed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    SchoolDashBoard schoolDashBoard = new SchoolDashBoard();
+                    var query = $"SELECT * FROM tbl_User_Account WHERE U_ID = '{id_user}'";
+                    var dataRow = SQLHelper.ExecQueryDataAsDataTable(query);
+
+                    SchoolDashBoard schoolDashBoard = new SchoolDashBoard(dataRow.Rows[0]);
                     schoolDashBoard.Show();
                 }
                 else

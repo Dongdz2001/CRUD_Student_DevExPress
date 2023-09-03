@@ -30,7 +30,7 @@ namespace CRUD_STUDENT_2
             password = Program.CalculateMD5Hash(password);
 
             // Sử dụng tham số trong truy vấn để tránh tình trạng SQL injection
-            var query = "SELECT * FROM tbl_User WHERE U_name = @username AND U_Pass = @password";
+            var query = "SELECT * FROM tbl_User_Account WHERE U_name = @username AND U_Pass = @password";
             var parameters = new Dictionary<string, object>
             {
                 { "@username", user_name },
@@ -42,7 +42,7 @@ namespace CRUD_STUDENT_2
             // Kiểm tra nếu có dòng dữ liệu trả về
             if (data_row.Rows.Count == 1)
             {
-                var schoolsDashBoard = new SchoolDashBoard();
+                var schoolsDashBoard = new SchoolDashBoard(data_row.Rows[0]);
                 schoolsDashBoard.Show();
                 this.Hide();
             }
