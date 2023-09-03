@@ -4,6 +4,7 @@ using DevExpress.UserSkins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
@@ -33,6 +34,27 @@ namespace CRUD_STUDENT_2
             char[] charArray = decodedString.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
+        }
+
+        public static string CalculateMD5Hash(string input)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                // Chuyển đổi chuỗi thành mảng byte
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+                // Mã hóa chuỗi thành một mảng byte MD5
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Chuyển đổi mảng byte MD5 thành chuỗi hex
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2")); // x2 để định dạng byte thành hex
+                }
+
+                return sb.ToString();
+            }
         }
 
         [STAThread]

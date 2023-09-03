@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,9 +27,10 @@ namespace CRUD_STUDENT_2
         {
             string user_name = txtUserName.Text;
             string password = txtPassword.Text;
+            password = Program.CalculateMD5Hash(password);
 
             // Sử dụng tham số trong truy vấn để tránh tình trạng SQL injection
-            var query = "SELECT * FROM LoginUsers WHERE U_name = @username AND U_Pass = @password";
+            var query = "SELECT * FROM tbl_User WHERE U_name = @username AND U_Pass = @password";
             var parameters = new Dictionary<string, object>
             {
                 { "@username", user_name },
@@ -76,6 +78,27 @@ namespace CRUD_STUDENT_2
             {
                 this.PerformLogin();
             }
+        }
+
+        public string EccriptSHA512(string value , out byte[] salt)
+        {
+            const int keySize = 64;
+            const int iterations = 350000;
+            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
+
+            salt = new byte[keySize];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+
+            var hash = new Rfc2898DeriveBytes(
+                Encoding.UTF8.GetBytes(value),
+                salt,
+                iterations,
+                hashAlgorithm);
+
+            return BitConverter.ToString(hash.GetBytes(keySize)).Replace("-", string.Empty).ToLower().Substring(0, 40);
         }
     }
 }

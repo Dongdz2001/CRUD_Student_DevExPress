@@ -47,7 +47,7 @@
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.DashBoard = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -224,7 +224,7 @@
             // 
             this.Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup4});
+            this.DashBoard});
             this.Home.Name = "Home";
             this.Home.Text = "Home";
             // 
@@ -234,15 +234,15 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem12);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Edit";
             // 
-            // ribbonPageGroup4
+            // DashBoard
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem13);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.DashBoard.ItemLinks.Add(this.barButtonItem13);
+            this.DashBoard.ItemLinks.Add(this.barButtonItem14);
+            this.DashBoard.ItemLinks.Add(this.barButtonItem15);
+            this.DashBoard.Name = "DashBoard";
+            this.DashBoard.Text = "DashBorad";
             // 
             // ribbonStatusBar1
             // 
@@ -311,6 +311,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
         private DevExpress.XtraBars.BarButtonItem barButtonItem15;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup DashBoard;
     }
 }
