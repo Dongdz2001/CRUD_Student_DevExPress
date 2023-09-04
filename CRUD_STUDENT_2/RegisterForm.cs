@@ -83,7 +83,14 @@ namespace CRUD_STUDENT_2
                 idUser = id_user,
                 idRole = cbe_type_account.EditValue.ToString(),
             };
-
+            var isExisteUserAccount = Convert.ToInt32(SQLHelper.ExecQuerySacalar($"select count(*) from tbl_User_Account where U_Name ='{user_name}' ")) > 0;
+            if (isExisteUserAccount)
+            {
+                XtraMessageBox.Show("Exist account please try again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtUserName.Text = "";
+                txtUserName.Focus();
+                return;
+            }
             try
             {
                 var affectRow = SQLHelper.Insert(newUser);

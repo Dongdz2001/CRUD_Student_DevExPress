@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,9 +43,16 @@ namespace CRUD_STUDENT_2
             permission = dataRow_Permission.Rows[0]["role"].ToString().Trim();
         }
 
+        // Kiểm tra quyền truy cập của User
+        private bool Check_Permission(string userPermision ,string permissionAvailable)
+        {
+         
+            return userPermision.Equals(permissionAvailable) || userPermision.Equals("Admin") ;
+        }
+
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!permission.Equals("Student"))
+            if (!Check_Permission(permission,"Student"))
             {
                 XtraMessageBox.Show("Bạn không có quyền truy cập vào Student", "Warning");
                 return;
@@ -62,7 +70,7 @@ namespace CRUD_STUDENT_2
 
         private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!permission.Equals("Teacher"))
+            if (!Check_Permission(permission, "Teacher"))
             {
                 XtraMessageBox.Show("Bạn không có quyền truy cập vào Teacher", "Warning");
                 return;
@@ -80,7 +88,7 @@ namespace CRUD_STUDENT_2
 
         private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!permission.Equals("Parent"))
+            if (!Check_Permission(permission, "Parent"))
             {
                 XtraMessageBox.Show("Bạn không có quyền truy cập vào Parent", "Warning");
                 return;
@@ -94,6 +102,13 @@ namespace CRUD_STUDENT_2
                 formParent = new FormParent();
                 formParent.Show();
             }
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+            LoginForm login = new LoginForm();
+            login.Show();
         }
     }
 }
