@@ -25,6 +25,24 @@ namespace CRUD_STUDENT_2
 
         private void PerformLogin()
         {
+            XtraMessageBoxArgs args = new XtraMessageBoxArgs()
+            {
+                // Sets the caption of the message box.
+                Caption = "Đăng nhập",
+                // Sets the message of the message box.
+                Text = "Đang đăng nhập xin chờ...",
+                // Sets the buttons of the message box.
+                Buttons = new DialogResult[] { DialogResult.OK },
+                // Sets the auto-close options of the message box.
+                AutoCloseOptions = new AutoCloseOptions()
+                {
+                    // Sets the delay before the message box automatically closes.
+                    Delay = 1000,
+                    // Displays the timer on the default button.
+                    ShowTimerOnDefaultButton = true
+                }
+            };
+            XtraMessageBox.Show(args);
             string user_name = txtUserName.Text;
             string password = txtPassword.Text;
             password = Program.CalculateMD5Hash(password);
@@ -48,7 +66,7 @@ namespace CRUD_STUDENT_2
             }
             else
             {
-                XtraMessageBox.Show("User or Passwors is incorrect!", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               XtraMessageBox.Show("User or Passwors is incorrect!", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

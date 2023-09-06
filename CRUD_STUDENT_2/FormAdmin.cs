@@ -51,21 +51,24 @@ namespace CRUD_STUDENT_2
 
             if (e.Column == Student)
             {
-                per.setOnlyValuePermision("Student");
+                per.setOnlyValuePermision("Student",per);
             }
             else if (e.Column == Teacher)
             {
-                per.setOnlyValuePermision("Teacher");
+                per.setOnlyValuePermision("Teacher", per);
             }
             else if (e.Column == Parent)
             {
-                per.setOnlyValuePermision("Parent");
+                per.setOnlyValuePermision("Parent", per);
             }
             else if (e.Column == Admin)
             {
-                per.setOnlyValuePermision("Admin");
+                per.setOnlyValuePermision("Admin",per);
+            }else if (e.Column == allPermision)
+            {
+                per.setAllValue(!per.allPermision);
             }
-
+       
             // Cập nhật lại dòng trong grid
             gridViewAdmin.RefreshRow(e.RowHandle);
         }

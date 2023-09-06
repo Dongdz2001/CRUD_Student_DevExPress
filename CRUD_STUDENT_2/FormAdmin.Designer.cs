@@ -47,6 +47,8 @@
             this.cbTeacher = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.Parent = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbParent = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.allPermision = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbAll = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colDel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
@@ -61,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTeacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -90,7 +93,8 @@
             this.repositoryItemCheckedComboBoxEdit1,
             this.cbStudent,
             this.cbTeacher,
-            this.cbParent});
+            this.cbParent,
+            this.cbAll});
             this.gridControl4.Size = new System.Drawing.Size(705, 325);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -106,6 +110,7 @@
             this.Student,
             this.Teacher,
             this.Parent,
+            this.allPermision,
             this.colDel});
             this.gridViewAdmin.GridControl = this.gridControl4;
             this.gridViewAdmin.Name = "gridViewAdmin";
@@ -132,8 +137,6 @@
             this.Permision.Caption = "Permision";
             this.Permision.FieldName = "role";
             this.Permision.Name = "Permision";
-            this.Permision.Visible = true;
-            this.Permision.VisibleIndex = 6;
             this.Permision.Width = 127;
             // 
             // Admin
@@ -146,6 +149,7 @@
             this.Admin.Name = "Admin";
             this.Admin.Visible = true;
             this.Admin.VisibleIndex = 2;
+            this.Admin.Width = 80;
             // 
             // cbAdmin
             // 
@@ -164,6 +168,7 @@
             this.Student.Name = "Student";
             this.Student.Visible = true;
             this.Student.VisibleIndex = 3;
+            this.Student.Width = 80;
             // 
             // cbStudent
             // 
@@ -180,6 +185,7 @@
             this.Teacher.Name = "Teacher";
             this.Teacher.Visible = true;
             this.Teacher.VisibleIndex = 4;
+            this.Teacher.Width = 74;
             // 
             // cbTeacher
             // 
@@ -196,12 +202,25 @@
             this.Parent.Name = "Parent";
             this.Parent.Visible = true;
             this.Parent.VisibleIndex = 5;
-            this.Parent.Width = 52;
             // 
             // cbParent
             // 
             this.cbParent.AutoHeight = false;
             this.cbParent.Name = "cbParent";
+            // 
+            // allPermision
+            // 
+            this.allPermision.AppearanceHeader.Options.UseTextOptions = true;
+            this.allPermision.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.allPermision.Caption = "All";
+            this.allPermision.ColumnEdit = this.cbAll;
+            this.allPermision.FieldName = "allPermision";
+            this.allPermision.Name = "allPermision";
+            // 
+            // cbAll
+            // 
+            this.cbAll.AutoHeight = false;
+            this.cbAll.Name = "cbAll";
             // 
             // colDel
             // 
@@ -276,6 +295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTeacher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -306,5 +326,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit cbTeacher;
         private DevExpress.XtraGrid.Columns.GridColumn Parent;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit cbParent;
+        private DevExpress.XtraGrid.Columns.GridColumn allPermision;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit cbAll;
     }
 }
