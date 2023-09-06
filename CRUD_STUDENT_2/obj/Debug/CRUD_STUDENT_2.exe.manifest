@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CRUD_STUDENT_2.exe" size="8446480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CRUD_STUDENT_2.exe" size="8458768">
       <assemblyIdentity name="CRUD_STUDENT_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jPpsc2/Vnzhp5OeASLtqJlU6U/0AlWdClaDBEYx5u+U=</dsig:DigestValue>
+        <dsig:DigestValue>LqxXOOMMUfft21BExxAHrPVJnowcIVOhy8yvHuC9w2k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

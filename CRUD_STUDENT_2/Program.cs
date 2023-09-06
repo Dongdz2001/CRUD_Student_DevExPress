@@ -62,7 +62,7 @@ namespace CRUD_STUDENT_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            VBSQLHelper.SQLHelper.SERVER_NAME = ReverseDecrypt("ZwByAG8ALgBvAHQAcABvAGgALgB0AHMAbwBoAC0AdABjAGUAbgBuAG8AYwBnAA==").ToString();
+            VBSQLHelper.SQLHelper.SERVER_NAME = ReverseDecrypt("ZwByAG8ALgBvAHQAcABvAGgALgB0AHMAbwBoAC0AdABjAGUAbgBuAG8AYwBnAA==");
             VBSQLHelper.SQLHelper.DATABASE = ReverseDecrypt("dABzAGUAdABfAHQAYwBlAG4AbgBvAGMARwA=");
             VBSQLHelper.SQLHelper.USERNAME_DB = ReverseDecrypt("dABsAGwAcQA=");
             VBSQLHelper.SQLHelper.PASSWORD_DB = ReverseDecrypt("NgA1ADQAMwAyADEAQAB0AGwAbABxAA==");

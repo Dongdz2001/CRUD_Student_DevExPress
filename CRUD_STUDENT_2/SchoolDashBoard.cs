@@ -19,6 +19,7 @@ namespace CRUD_STUDENT_2
         private FormStudent formStudent ;
         private FormParent formParent ;
         private FormTeacher formTeacher ;
+        private FormAdmin formAdmin;
         private User user;
         private string permission;
         public SchoolDashBoard(DataRow dataRow)
@@ -27,6 +28,7 @@ namespace CRUD_STUDENT_2
             formStudent = new FormStudent();
             formParent = new FormParent();
             formTeacher = new FormTeacher();
+            formAdmin = new FormAdmin();
             user = new User {
                 U_ID = dataRow["U_ID"].ToString(),
                 U_Name = dataRow["U_Name"].ToString(),
@@ -39,8 +41,10 @@ namespace CRUD_STUDENT_2
                         $"WHERE U_ID = '{user.U_ID}';";
 
             var dataRow_Permission = SQLHelper.ExecQueryDataAsDataTable(query);
-            //XtraMessageBox.Show(dataRow_Permission.Rows[0]["role"].ToString());
             permission = dataRow_Permission.Rows[0]["role"].ToString().Trim();
+
+            // Kiểm tra có phải Admin đăng nhập hay không để hiển thị phần quản lý phân quyền
+            rbnManageAccess.Visible = Check_Permission(permission,"Admin");
         }
 
         // Kiểm tra quyền truy cập của User
@@ -109,6 +113,24 @@ namespace CRUD_STUDENT_2
             this.Close();
             LoginForm login = new LoginForm();
             login.Show();
+        }
+
+        private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Check_Permission(permission, "Admin"))
+            {
+                XtraMessageBox.Show("Bạn không có quyền truy cập vào Admin", "Warning");
+                return;
+            }
+            try
+            {
+                formAdmin.Show();
+            }
+            catch (Exception ex)
+            {
+                formAdmin = new FormAdmin();
+                formAdmin.Show();
+            }
         }
     }
 }

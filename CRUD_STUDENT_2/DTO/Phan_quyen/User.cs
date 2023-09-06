@@ -15,6 +15,7 @@ namespace CRUD_STUDENT_2
         public string U_ID { get; set; }
         public string U_Name { get; set; }
         public string U_Pass { get; set; }
+        
         //public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 
         public void EncryptionHashPassword(out byte[] salt)

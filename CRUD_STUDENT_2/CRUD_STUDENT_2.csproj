@@ -101,6 +101,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Phan_quyen\UserPermision.cs" />
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\Phan_quyen\Role.cs" />
     <Compile Include="DTO\Phan_quyen\RoleUser.cs" />
     <Compile Include="FormParent.cs">
@@ -150,6 +157,9 @@
     <Compile Include="DTO\Home\Student.cs" />
     <Compile Include="DTO\Home\Teacher.cs" />
     <Compile Include="DTO\Phan_quyen\User.cs" />
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormParent.resx">
       <DependentUpon>FormParent.cs</DependentUpon>
     </EmbeddedResource>

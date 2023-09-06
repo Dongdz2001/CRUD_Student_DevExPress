@@ -46,9 +46,11 @@
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
             this.Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.DashBoard = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnManageAccess = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -76,9 +78,10 @@
             this.barButtonItem13,
             this.barButtonItem14,
             this.barButtonItem15,
-            this.btnLogout});
+            this.btnLogout,
+            this.barButtonItem16});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 17;
+            this.ribbonControl1.MaxItemId = 18;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageHeaderItemLinks.Add(this.btnLogout);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -224,17 +227,30 @@
             // 
             this.btnLogout.Caption = "Log out";
             this.btnLogout.Id = 16;
-            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.ImageOptions.Image")));
-            this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.ImageOptions.LargeImage")));
+            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
+            this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
+            // barButtonItem16
+            // 
+            this.barButtonItem16.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.barButtonItem16.Caption = "Manage access";
+            this.barButtonItem16.Id = 17;
+            this.barButtonItem16.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.ImageOptions.Image")));
+            this.barButtonItem16.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.ImageOptions.LargeImage")));
+            this.barButtonItem16.LargeWidth = 80;
+            this.barButtonItem16.Name = "barButtonItem16";
+            this.barButtonItem16.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
             // 
             // Home
             // 
             this.Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.DashBoard});
+            this.DashBoard,
+            this.rbnManageAccess});
             this.Home.Name = "Home";
             this.Home.Text = "Home";
             // 
@@ -253,6 +269,14 @@
             this.DashBoard.ItemLinks.Add(this.barButtonItem15);
             this.DashBoard.Name = "DashBoard";
             this.DashBoard.Text = "DashBorad";
+            // 
+            // rbnManageAccess
+            // 
+            this.rbnManageAccess.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
+            this.rbnManageAccess.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.True;
+            this.rbnManageAccess.ItemLinks.Add(this.barButtonItem16);
+            this.rbnManageAccess.Name = "rbnManageAccess";
+            this.rbnManageAccess.Text = "Manage";
             // 
             // ribbonStatusBar1
             // 
@@ -323,5 +347,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem15;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup DashBoard;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem16;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnManageAccess;
     }
 }
