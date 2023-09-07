@@ -761,13 +761,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CRUD_STUDENT_2.exe.config" size="1240">
+  <file name="CRUD_STUDENT_2.exe.config" size="1114">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/6ONJnx/bshrtdxEcDcieTZC1zrejMQHza4nHHkT0N4=</dsig:DigestValue>
+      <dsig:DigestValue>WBKr1LSyJs64qNJlLe7nAEcs8w3BPOcKnD9/mP+pY4o=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
