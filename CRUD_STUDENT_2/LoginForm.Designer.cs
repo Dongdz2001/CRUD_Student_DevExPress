@@ -139,6 +139,7 @@
             this.Controls.Add(this.labUserName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnLogin);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("LoginForm.IconOptions.Image")));
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();

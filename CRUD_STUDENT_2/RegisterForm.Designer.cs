@@ -44,8 +44,8 @@
             this.tblroleUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cbe_type_account = new DevExpress.XtraEditors.LookUpEdit();
-            this.gconnect_testDataSet1 = new CRUD_STUDENT_2.Gconnect_testDataSet1();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.gconnect_testDataSet1 = new CRUD_STUDENT_2.Gconnect_testDataSet1();
             this.tbl_RoleTableAdapter1 = new CRUD_STUDENT_2.Gconnect_testDataSet1TableAdapters.tbl_RoleTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.txtRePassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -54,8 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblroleUserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbe_type_account.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gconnect_testDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gconnect_testDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbLogin
@@ -167,7 +167,6 @@
             this.BtnRegister.Text = "Đăng ký";
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             this.BtnRegister.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnRegister_KeyDown);
-
             // 
             // bindingSource1
             // 
@@ -187,15 +186,15 @@
             this.cbe_type_account.Size = new System.Drawing.Size(174, 20);
             this.cbe_type_account.TabIndex = 25;
             // 
-            // gconnect_testDataSet1
-            // 
-            this.gconnect_testDataSet1.DataSetName = "Gconnect_testDataSet1";
-            this.gconnect_testDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bindingSource2
             // 
             this.bindingSource2.DataMember = "tbl_Role";
             this.bindingSource2.DataSource = this.gconnect_testDataSet1;
+            // 
+            // gconnect_testDataSet1
+            // 
+            this.gconnect_testDataSet1.DataSetName = "Gconnect_testDataSet1";
+            this.gconnect_testDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbl_RoleTableAdapter1
             // 
@@ -218,6 +217,7 @@
             this.Controls.Add(this.labUserName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnRegister);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("RegisterForm.IconOptions.Image")));
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             this.Load += new System.EventHandler(this.RegisterForm_Load);
@@ -228,8 +228,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblroleUserBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbe_type_account.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gconnect_testDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gconnect_testDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

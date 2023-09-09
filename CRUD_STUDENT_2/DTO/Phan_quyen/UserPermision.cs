@@ -39,7 +39,7 @@ namespace CRUD_STUDENT_2.DTO.Phan_quyen
         }
        
 
-        public void  setOnlyValuePermision(string permisionAccount, UserPermision per )
+        public void  setOnlyValuePermision(string permisionAccount ,UserPermision per )
         {
             this.allPermision = false;
             this.admin = permisionAccount == "Admin";
@@ -58,13 +58,7 @@ namespace CRUD_STUDENT_2.DTO.Phan_quyen
                 { "@RoleUser", permisionAccount }
             };
 
-            var data_row = SQLHelper.ExecQueryDataAsDataTable(query, parameters);
-
-            //string queryCheckUpdated = @"
-            //    SELECT * FROM tbl_Role_Uers as RU WHERE RU.idUser = @idUserAccount  
-            //    AND RU.idRole = (SELECT tbl_Role.id FROM tbl_Role WHERE tbl_Role.role = @RoleUser )
-            //    ";
-            
+            var data_row = SQLHelper.ExecQueryDataAsDataTable(query, parameters);            
             if (data_row == null )
             {
                 XtraMessageBox.Show("Có lỗi xảy ra chưa update được quyền truy cập!");

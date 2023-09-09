@@ -313,6 +313,7 @@
             this.Controls.Add(this.imageSlider1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("SchoolDashBoard.IconOptions.Image")));
             this.Name = "SchoolDashBoard";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;

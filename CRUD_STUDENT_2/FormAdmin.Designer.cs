@@ -284,6 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 349);
             this.Controls.Add(this.layoutControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FormAdmin.IconOptions.Image")));
             this.Name = "FormAdmin";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.FormAdmin_Load);

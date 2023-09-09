@@ -36,7 +36,8 @@ namespace CRUD_STUDENT_2
                 LEFT JOIN tbl_Role as R
                 ON RU.idRole = R.id ";
             dataAdmin = (List<UserPermision>)SQLHelper.ExecQueryData<UserPermision>(query);
-
+            // Loại bỏ người dùng có U_Name là "admin"
+            dataAdmin.RemoveAll(user => user.U_Name.Trim() == "admin");
             foreach (UserPermision user in dataAdmin)
             {
                 user.setValuePermision();
@@ -45,7 +46,7 @@ namespace CRUD_STUDENT_2
             gridControl4.DataSource = dataAdmin;
         }
 
-        private void gridViewAdmin_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private  void gridViewAdmin_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var per = gridViewAdmin.GetRow(e.RowHandle) as UserPermision;
 
@@ -63,8 +64,19 @@ namespace CRUD_STUDENT_2
             }
             else if (e.Column == Admin)
             {
-                per.setOnlyValuePermision("Admin",per);
-            }else if (e.Column == allPermision)
+                var dlg = XtraMessageBox.Show($"Bạn có muốn cho trao quyền Admin cho người này không hãy cân nhắc thật kỹ!",
+                "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dlg == DialogResult.Yes)
+                {
+                    per.setOnlyValuePermision("Admin", per);
+                }
+                else
+                {
+                    // Đặt lại giá trị của ô checkBox Admin trong lưới (GridView) thành false
+                    gridViewAdmin.SetRowCellValue(e.RowHandle, Admin, false);
+                }
+            }
+            else if (e.Column == allPermision)
             {
                 per.setAllValue(!per.allPermision);
             }
