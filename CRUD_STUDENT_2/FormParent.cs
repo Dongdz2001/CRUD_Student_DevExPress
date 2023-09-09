@@ -170,12 +170,28 @@ namespace CRUD_STUDENT_2
             if (e.Column == colDel)
             {
                 var parentDelete = gridViewParents.GetFocusedRow() as Parents;
-                var dlg = XtraMessageBox.Show($"Are you sure deleted parents: {parentDelete.firstname} {parentDelete.lastname}?",
+                var dlg = XtraMessageBox.Show($"Are you sure deleted parents: {parentDelete.firstname.Trim()} {parentDelete.lastname.Trim()}?",
                     "information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dlg == DialogResult.Yes)
                 {
                     SQLHelper.Delete(parentDelete);
                     gridViewParents.DeleteSelectedRows();
+                }
+            }
+        }
+
+        private void txtSeach_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtSeach.Text != "")
+                {
+                    var dataStudents = SQLHelper.ExecQueryData<Parents>($"select * from tbl_parents where firstname like  '%{txtSeach.Text}%' or lastname like  '%{txtSeach.Text}%' ");
+                    gridControl2.DataSource = dataStudents;
+                }
+                else
+                {
+                    LoadDataToGirlViews();
                 }
             }
         }

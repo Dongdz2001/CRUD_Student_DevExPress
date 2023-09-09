@@ -169,7 +169,7 @@ namespace CRUD_STUDENT_2
             if (e.Column == colDel)
             {
                 var studentDelete = gridViewStudent.GetFocusedRow() as Student;
-                var dlg = XtraMessageBox.Show($"Are you sure deleted student: {studentDelete.firstname} {studentDelete.lastname}?",
+                var dlg = XtraMessageBox.Show($"Are you sure deleted student: {studentDelete.firstname.Trim()} {studentDelete.lastname.Trim()}?",
                     "information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dlg == DialogResult.Yes)
                 {
@@ -191,6 +191,22 @@ namespace CRUD_STUDENT_2
                 txtAddress.EditValue = student.address;
                 spin_age.EditValue = student.age;
                 cbGender.EditValue = student.gender ? 1 : 2;
+            }
+        }
+
+        private void txtSeach_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtSeach.Text != "")
+                {
+                    var dataStudents = SQLHelper.ExecQueryData<Student>($"select * from tbl_student where firstname like  '%{txtSeach.Text}%' or lastname like  '%{txtSeach.Text}%' ");
+                    gridControl1.DataSource = dataStudents;
+                }
+                else
+                {
+                    LoadDataToGirlViews();
+                }
             }
         }
     }
