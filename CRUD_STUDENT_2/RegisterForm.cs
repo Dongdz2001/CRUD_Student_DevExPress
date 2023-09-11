@@ -131,10 +131,12 @@ namespace CRUD_STUDENT_2
 
         private void RegisterForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gconnect_testDataSet1.tbl_Role' table. You can move, or remove it, as needed.
-            this.tbl_RoleTableAdapter1.Fill(this.gconnect_testDataSet1.tbl_Role);
-            // TODO: This line of code loads data into the 'gconnect_testDataSet.tbl_Role' table. You can move, or remove it, as needed.
+            var roleTable = this.gconnect_testDataSet1.tbl_Role;
 
+
+            // Sau khi xóa các dòng, bạn có thể điền dữ liệu vào bảng.
+            this.tbl_RoleTableAdapter1.Fill(roleTable);
+           
         }
     }
 }

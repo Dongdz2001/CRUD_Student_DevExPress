@@ -55,6 +55,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtSeach = new DevExpress.XtraEditors.TextEdit();
+            this.editSeach = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -69,11 +72,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeach.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSeach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.gridControl4);
+            this.layoutControl1.Controls.Add(this.txtSeach);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -84,7 +91,7 @@
             // 
             // gridControl4
             // 
-            this.gridControl4.Location = new System.Drawing.Point(12, 12);
+            this.gridControl4.Location = new System.Drawing.Point(12, 52);
             this.gridControl4.MainView = this.gridViewAdmin;
             this.gridControl4.Name = "gridControl4";
             this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -95,7 +102,7 @@
             this.cbTeacher,
             this.cbParent,
             this.cbAll});
-            this.gridControl4.Size = new System.Drawing.Size(705, 325);
+            this.gridControl4.Size = new System.Drawing.Size(705, 285);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAdmin,
@@ -264,7 +271,9 @@
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.emptySpaceItem1,
+            this.editSeach});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(729, 349);
             this.Root.TextVisible = false;
@@ -272,11 +281,39 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl4;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(709, 329);
+            this.layoutControlItem1.Size = new System.Drawing.Size(709, 289);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // txtSeach
+            // 
+            this.txtSeach.Location = new System.Drawing.Point(57, 12);
+            this.txtSeach.Name = "txtSeach";
+            this.txtSeach.Size = new System.Drawing.Size(660, 20);
+            this.txtSeach.StyleController = this.layoutControl1;
+            this.txtSeach.TabIndex = 11;
+            this.txtSeach.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSeach_KeyDown);
+            // 
+            // editSeach
+            // 
+            this.editSeach.Control = this.txtSeach;
+            this.editSeach.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.editSeach.CustomizationFormText = "Seach:";
+            this.editSeach.Location = new System.Drawing.Point(0, 0);
+            this.editSeach.Name = "editSeach";
+            this.editSeach.Size = new System.Drawing.Size(709, 24);
+            this.editSeach.Text = "Seach:";
+            this.editSeach.TextSize = new System.Drawing.Size(33, 13);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(709, 16);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // FormAdmin
             // 
@@ -302,6 +339,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeach.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSeach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +369,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit cbParent;
         private DevExpress.XtraGrid.Columns.GridColumn allPermision;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit cbAll;
+        private DevExpress.XtraEditors.TextEdit txtSeach;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem editSeach;
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CRUD_STUDENT_2.DTO.Phan_quyen
 {
-    [Dapper.Contrib.Extensions.Table("tbl_roleUser")]
+    [Dapper.Contrib.Extensions.Table("tbl_Role")]
 
     internal class Role
     {
         [Key]
-        public string Id { get; set; }
-        public string RoleName { get; set; }
+        public string id { get; set; }
+        public string role { get; set; }
     }
 }

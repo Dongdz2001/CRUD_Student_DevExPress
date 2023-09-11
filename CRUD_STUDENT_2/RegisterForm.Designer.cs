@@ -180,6 +180,8 @@
             this.cbe_type_account.Name = "cbe_type_account";
             this.cbe_type_account.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbe_type_account.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("role", "Role")});
             this.cbe_type_account.Properties.DataSource = this.bindingSource2;
             this.cbe_type_account.Properties.DisplayMember = "role";
             this.cbe_type_account.Properties.ValueMember = "id";

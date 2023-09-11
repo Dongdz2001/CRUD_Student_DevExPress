@@ -182,11 +182,17 @@ namespace CRUD_STUDENT_2
 
         private void txtSeach_KeyDown(object sender, KeyEventArgs e)
         {
+            string searchString = txtSeach.Text;
+            string query = $@"
+                SELECT * FROM tbl_parents
+                WHERE firstname COLLATE SQL_Latin1_General_Cp1251_CS_AS LIKE N'%{searchString}%' 
+                OR lastname COLLATE SQL_Latin1_General_Cp1251_CS_AS LIKE N'%{searchString}%'
+            ";
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtSeach.Text != "")
                 {
-                    var dataStudents = SQLHelper.ExecQueryData<Parents>($"select * from tbl_parents where firstname like  '%{txtSeach.Text}%' or lastname like  '%{txtSeach.Text}%' ");
+                    var dataStudents = SQLHelper.ExecQueryData<Parents>(query);
                     gridControl2.DataSource = dataStudents;
                 }
                 else

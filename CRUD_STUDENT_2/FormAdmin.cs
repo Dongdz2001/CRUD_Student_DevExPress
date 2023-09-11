@@ -1,6 +1,7 @@
 ﻿using CRUD_STUDENT_2.DTO.Phan_quyen;
 using CRUD_STUDENT_DEMO;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,13 +47,13 @@ namespace CRUD_STUDENT_2
             gridControl4.DataSource = dataAdmin;
         }
 
-        private  void gridViewAdmin_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void gridViewAdmin_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var per = gridViewAdmin.GetRow(e.RowHandle) as UserPermision;
 
             if (e.Column == Student)
             {
-                per.setOnlyValuePermision("Student",per);
+                per.setOnlyValuePermision("Student", per);
             }
             else if (e.Column == Teacher)
             {
@@ -80,9 +81,38 @@ namespace CRUD_STUDENT_2
             {
                 per.setAllValue(!per.allPermision);
             }
-       
+
             // Cập nhật lại dòng trong grid
             gridViewAdmin.RefreshRow(e.RowHandle);
+        }
+
+        private void txtSeach_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchString = txtSeach.Text.Trim();
+                string query = $@"
+                SELECT UA.U_ID, UA.U_Name, R.role FROM tbl_User_Account as UA
+                LEFT JOIN  tbl_Role_Users  as RU
+                ON UA.U_ID = RU.idUser 
+                LEFT JOIN tbl_Role as R
+                ON RU.idRole = R.id 
+                WHERE UA.U_Name LIKE N'%{searchString}%' 
+                ";
+                dataAdmin = (List<UserPermision>)SQLHelper.ExecQueryData<UserPermision>(query);
+                // Loại bỏ người dùng có U_Name là "admin"
+                dataAdmin.RemoveAll(user => user.U_Name.Trim() == "admin");
+                foreach (UserPermision user in dataAdmin)
+                {
+                    user.setValuePermision();
+                }
+
+                gridControl4.DataSource = dataAdmin;
+            }
+            else
+            {
+                LoadDataToGridView();
+            }
         }
     }
 }

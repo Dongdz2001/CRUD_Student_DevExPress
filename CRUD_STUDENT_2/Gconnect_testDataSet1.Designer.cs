@@ -10,6 +10,9 @@
 
 #pragma warning disable 1591
 
+using System;
+using System.Data;
+
 namespace CRUD_STUDENT_2 {
     
     
@@ -959,6 +962,11 @@ namespace CRUD_STUDENT_2.Gconnect_testDataSet1TableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string role, string Original_id, string Original_role) {
             return this.Update(Original_id, role, Original_id, Original_role);
+        }
+
+        internal void Fill(EnumerableRowCollection<Gconnect_testDataSet1.tbl_RoleRow> roleTable)
+        {
+            throw new NotImplementedException();
         }
     }
     
